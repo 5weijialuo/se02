@@ -6,9 +6,9 @@ package thread;
 *关于线程安全的隐患,和线程安全的模拟
 **/
 public class Thread_Safe01 {
-    public static  int money=1000;
+    public  static  int money=1000;
     public static void main(String[] args) {
-        Thread thread_0=new Thread_0();
+        Runnable thread_0=new Thread_0();
         Thread thread=new Thread(thread_0,"公司老总");
 
 
@@ -26,14 +26,14 @@ public class Thread_Safe01 {
 
     }
 }
-class Thread_0 extends Thread{
+class Thread_0 implements Runnable {
     @Override
     public void run() {
         int d=0;
         for (int i=0;i<10;i++) {
             Thread_Safe01.money-=100;
             if (Thread_Safe01.money<0){
-                throw new MyException(getName());
+                throw new MyException(Thread.currentThread().getName());
             }
              d=Thread_Safe01.money;
             System.out.println(Thread.currentThread().getName()+"----------->我的银行卡里还有"+d);

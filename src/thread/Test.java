@@ -2,13 +2,13 @@ package thread;
 
 public class Test {
     public static void main(String[] args) {
-        Dome1 dome1=new Dome1();
-        Thread thread=new Thread(dome1,"第一线程");
+        thread.threadDome.Dome1 dome1=new thread.threadDome.Dome1();
+        Thread thread=new Thread((Runnable) dome1,"第一线程");
         thread.start();
         System.out.println(thread.getName());
 
-        Dome1 dom=new Dome1();
-        Thread thread1=new Thread(dom,"第二线程");
+        thread.threadDome.Dome1 dom=new thread.threadDome.Dome1();
+        Thread thread1=new Thread((Runnable) dom,"第二线程");
         thread1.start();
         System.out.println(thread1.getName());
         try {
