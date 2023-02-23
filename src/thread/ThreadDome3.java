@@ -11,6 +11,7 @@ import java.util.concurrent.FutureTask;
 * */
 public class ThreadDome3 {
     public static void main(String[] args) {
+
         ThreadE callable=new ThreadE("线程000001");
         FutureTask<String> futureTask=new FutureTask<>(callable);
         Thread thread = new Thread(futureTask);
@@ -47,7 +48,7 @@ class ThreadE implements Callable<String>{
 
     @Override
     public String call() throws Exception {
-        return "返回该接口的结果"+name;
+        return "返回该接口的结果------>"+name;
     }
 }
 
