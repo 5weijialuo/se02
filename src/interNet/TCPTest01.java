@@ -29,8 +29,6 @@ public class TCPTest01 {
             stream.flush();
         }
 
-
-
         socket.close();
     }
 }
