@@ -1,7 +1,7 @@
 package interNet;
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.net.InetAddress;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ public class TCPTest01 {
 3. 使用Socket类的close方法关闭连接。
 * */
         //连接到服务器对象
-        Socket socket = new Socket(InetAddress.getLocalHost(),9090);
+        Socket socket = new Socket(InetAddress.getLocalHost(),9091);
         //建立通信管道
         OutputStream outputStream = socket.getOutputStream();
         /*用高级流封装数据*/
@@ -25,7 +25,7 @@ public class TCPTest01 {
         String s;
         /*连续发送时消息给服务端,直到输入exit,退出客户端*/
         while (!((s=scanner.nextLine()).equals("exit"))){
-            stream.println("可以开始发送----->"+s);
+           /* System.out.println(s);*/
             stream.flush();
         }
 

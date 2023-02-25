@@ -1,12 +1,10 @@
 package interNet;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.zip.InflaterInputStream;
+import java.util.Scanner;
 
 public class TCPTest02 {
     public static void main(String[] args) throws Exception{
@@ -18,28 +16,24 @@ public class TCPTest02 {
 3. 建立连接后，通过输出输入流进行读写操作
 4. 关闭相关资源
 * */
-
-
         //等待接收客户端请求
-        ServerSocket serverSocket=new ServerSocket(9090);
+        ServerSocket serverSocket=new ServerSocket(9091);
         /*建立管道*/
         Socket accept = serverSocket.accept();
 
         /*接收*/
         InputStream inputStream = accept.getInputStream();
         BufferedReader br=new BufferedReader(new InputStreamReader(inputStream));
+
         String s = "";
- while (true){
+        while (true){
      if ((s= br.readLine())!=null){
-         System.out.println("接收成功");
+       /* stream.flush();*/
+         System.out.print("接收到"+accept.getRemoteSocketAddress()+"--->");
          System.out.println(serverSocket.getReceiveBufferSize()+"--->"+s);
+
      }
  }
-      
-
-
-
-
 
     }
 }
