@@ -10,6 +10,7 @@ import java.net.Socket;
 public class Dome4 {
     /*服务端*/
     /*服务端使用多线程完成接收多端通信*/
+
     public static void main(String[] args) {
 
         try {
@@ -28,27 +29,5 @@ public class Dome4 {
         }
     }
 }
-class MyThread implements Runnable{
-    private Socket socket;
-    public MyThread(Socket socket){
-        this.socket=socket;
-    }
-    @Override
-    public void run() {
-        while (true){
-            try {
-                if (socket==null){
-                    System.exit(0);
-                }
-                InputStream inputStream = socket.getInputStream();
-                BufferedReader br=new BufferedReader(new InputStreamReader(inputStream));
-                String s;
-                if (((s=br.readLine())!=null)) {
-                    System.out.println(socket.getInetAddress()+"说:--->"+s);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}
+
+

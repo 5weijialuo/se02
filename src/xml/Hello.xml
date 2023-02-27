@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--根标签,有且只能有一个-->
+<list>
+
+
+<Cat id = "2002">
+    <name>Tom</name>
+    <age>3</age>
+    <Array>打过疫苗</Array>
+    <info>
+        <address>北京</address>
+        <phone>123456789</phone>
+    </info>
+
+
+    <sql>
+        select * from Cat where age &lt; 2;
+    </sql>
+</Cat>
+    <Cat>
+        <name>jerk</name>
+        <age>5</age>
+        <Array>东风吹不来西楼</Array>
+        <info>
+            <address>上海</address>
+            <phone>987654321</phone>
+        </info>
+        <sql>desc jdbc</sql>
+    </Cat>
+
+</list>
